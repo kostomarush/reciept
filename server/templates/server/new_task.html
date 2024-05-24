@@ -1,0 +1,60 @@
+{% extends "server/index.html" %}
+{% block head %} Новая Задача {% endblock %}
+{% block content %}
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-sm-12 col-xl-12">
+            <div class="bg-secondary rounded p-4">
+                    <h6 class="mb-0">Ввести задачу:</h6>
+                    <form class="form-horizontal text-center" method="post">
+                        {% csrf_token %}
+                            <div class="form-group row mb-3">
+                                <label class="col-sm-3 col-form-label">Наименование:</label>
+                                <div class="col-sm-9">
+                                    {{ form.name }}
+                                </div>
+                            </div>
+                            <div class="form-group row mb-3">
+                                <label class="col-sm-3 col-form-label">Адресс Цели:</label>
+                                <div class="col-sm-9">
+                                    {{ form.addr }}
+                                </div>
+                            </div>
+                            <div class="form-group row mb-3">
+                                <label class="col-sm-3 col-form-label">Ip Хоста:</label>
+                                <div class="col-sm-9">
+                                    {{ form.ip }}
+                                </div>
+                            </div>
+                            <div class="form-group row mb-3">
+                                <label class="col-sm-3 col-form-label">Число fuzz:</label>
+                                <div class="col-sm-9">
+                                    {{ form.nFuzz }}
+                                </div>
+                            </div>
+                            <div class="form-group row mb-3">
+                                <label class="col-sm-3 col-form-label">Завершение при аварии:</label>
+                                <div class="col-sm-1">
+                                    {{ form.avar }}
+                                </div>
+                            </div>
+                            <div class="form-group row mb-3">
+                                <label class="col-sm-3 col-form-label">Описание:</label>
+                                <div class="col-sm-9">
+                                    {{ form.opis }}
+                                </div>
+                            </div>
+                          <div class="form-check-inline">
+                            <button
+                              type="submit"
+                              class="btn btn-warning waves-effect waves-light"
+                            >
+                              Создать задачу
+                            </button>
+                        </div>
+                    </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

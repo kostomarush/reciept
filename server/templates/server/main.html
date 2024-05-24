@@ -1,0 +1,33 @@
+{% extends "server/index.html" %}
+{% block head %} Описание {% endblock %}
+{% block content %}
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-sm-12 col-xl-12">
+            <div class="bg-secondary rounded p-4">
+                <div class="d-flex align-items-center justify-content-between mb-4">
+                    <h6 class="mb-0">Кулинарные книги:</h6>
+                </div>
+                <table style="border:1px solid #E73134" class="table table-bordered text-center">
+                    <thead>
+                    <tr>
+                        <th>Название</th>
+                        <th>Рецепты</th>
+                        <th>Открыть</th>
+                        <th>Удаление</th>
+                    </tr>
+                    </thead>
+                    {% for i in all_info %}
+                    <tr>
+                        <td>{{i.recipe.cookbook.title}}</td>
+                        <td>{{i.recipe.title}}</td>
+                        <th><a class="btn btn-success" href="{% url 'open' i.id %}">Открыть</a></th>
+                        <th></th>
+                    </tr>
+                    {% endfor %}
+                  </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
