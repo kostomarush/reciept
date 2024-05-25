@@ -1,5 +1,16 @@
 from django.db import models
 
+"""
+1. У каждой книги несколько рецептов - связь ОДИН КО МНОГИМ
+
+2. У каждого рецепта несколько ингридиентов, а ингридиенты согут использоваться в разынх рецептах - связь МНОГИЕ КО МНОГИМ
+
+3. У каждой книги свой автор - СВЯЗЬ ОДИН К ОДНОМУ
+
+Добавление данных осуществляется через окно Admin в правом верхнем углу
+
+"""
+
 class Cookbook(models.Model):
     title = models.CharField(max_length=100)
 
@@ -30,7 +41,7 @@ class AuthorProfile(models.Model):
 
 class RecipeIngredient(models.Model):
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
-    ingredient = models.ManyToManyField(Ingredient, blank=True, null=True)
+    ingredient = models.ManyToManyField(Ingredient, blank=False)
 
     def __str__(self):
         return f"Ингридиенты для {self.recipe.title}"

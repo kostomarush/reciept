@@ -7,15 +7,26 @@
         <div class="col-sm-12 col-xl-3">
             <div class="bg-secondary text-center rounded p-4">
                 <div class="d-flex align-items-start mb-3">
-                    <h6 class="mb-1">Рецепт {{recipe.recipe}} состоит из:</h6>
+                    <h6 class="mb-1">Рецепт "{{recipe.recipe}}" состоит из:</h6>
                 </div>
+                <div style="color: aliceblue;" class='wrapper'>
                 <ul>
                     {% for ingredient in recipe.ingredient.all %}
                         <li>{{ ingredient.name }}</li>
                     {% endfor %}
                 </ul>
-                    
+            </div>
+            </div>
+        </div>
+        <div class="col-sm-12 col-xl-9">
+            <div class="bg-secondary text-center rounded p-4">
+                <div class="d-flex align-items-start mb-3">
+                    <h6 class="mb-1">Описание рецепта:</h6>
                 </div>
+                <p style="color: aliceblue; text-align: justify;">
+                {{recipe.recipe.description}}
+                </p>
+            </div>
         </div>
     </div>
 </div>

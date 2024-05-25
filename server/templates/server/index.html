@@ -29,7 +29,7 @@
     <link href="{% static 'server/css/bootstrap.min.css' %}" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="{% static 'server/css/styleses.css' %}" rel="stylesheet">
+    <link href="{% static 'server/css/stylesess.css' %}" rel="stylesheet">
 </head>
 
 <body>
@@ -54,8 +54,7 @@
                 </a>
                     <h2>&nbsp;&nbsp;BD Food</h2>
                 {% url 'main' as url_main%}
-                {% url 'tasks' as url_tasks%}
-                {% url 'new_task' as url_new_task%}
+                {% url 'auth' as url_auth%}
 
                 <div class="navbar-nav align-items-center ms-auto">
                     <div class="nav-item">
@@ -65,15 +64,9 @@
                         </a>
                     </div>
                     <div class="nav-item">
-                        <a class="nav-link {% if url_tasks == request.path%} active {%endif%}" href="{{url_tasks}}">
-                            <i class="fa fa-archive me-lg-2"></i>
-                            <span class="d-none d-lg-inline-flex">Задачи</span>
-                        </a>
-                    </div>
-                    <div class="nav-item">
-                        <a class="nav-link {% if url_new_task == request.path%} active {%endif%}" href="{{url_new_task}}">
-                            <i class="fa fa-edit me-lg-2"></i>
-                            <span class="d-none d-lg-inline-flex">Новая Задача</span>
+                        <a class="nav-link {% if url_auth == request.path%} active {%endif%}" href="{{url_auth}}">
+                            <i class="fa fa-address-book me-lg-2"></i>
+                            <span class="d-none d-lg-inline-flex">Авторы Кулинарных Книг</span>
                         </a>
                     </div>
                     <div class="nav-item">

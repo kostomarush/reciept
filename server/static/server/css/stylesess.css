@@ -15,6 +15,10 @@
     z-index: 99;
 }
 
+.wrapper {
+    text-align: left;
+}
+
 
 /*** Spinner ***/
 #spinner {

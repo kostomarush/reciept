@@ -1,29 +1,31 @@
 {% extends "server/index.html" %}
-{% block head %} Описание {% endblock %}
+{% load static %}
+{% block head %} Авторы Кулинарных книг {% endblock %}
 {% block content %}
 <div class="container-fluid pt-4 px-4">
     <div class="row g-4">
         <div class="col-sm-12 col-xl-12">
-            <div class="bg-secondary rounded p-4">
-                <div class="d-flex align-items-center justify-content-between mb-4">
-                    <h6 class="mb-0">Кулинарные книги:</h6>
+            <div class="bg-secondary text-center rounded p-4">
+                <div class="d-flex align-items-start mb-3">
+                    <h6 class="mb-1">Таблица авторов:</h6>
                 </div>
                 <table style="color: aliceblue; border:1px solid #e73168" class="table table-bordered text-center">
                     <thead>
                     <tr>
-                        <th>Название книги</th>
-                        <th>Рецепты</th>
+                        <th>Автор</th>
                         <th>Описание</th>
+                        <th>Название Книги</th>
                     </tr>
                     </thead>
-                    {% for i in all_info %}
+                    {% for i in auth %}
                     <tr>
-                        <td>{{i.recipe.cookbook.title}}</td>
-                        <td>{{i.recipe.title}}</td>
-                        <th><a class="btn btn-success" href="{% url 'open' i.id %}">Открыть</a></th>
+                        <td>{{i.author_name}}</td>
+                        <td>{{i.bio}}</td>
+                        <td>{{i.cookbook.title}}</td>
                     </tr>
                     {% endfor %}
                   </table>
+            </div>
             </div>
         </div>
     </div>
